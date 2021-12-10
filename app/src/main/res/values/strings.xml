@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">BanqueEnLigne</string>
+    <string name="titreConnexion">Connexion</string>
 </resources>
