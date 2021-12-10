@@ -1,4 +1,8 @@
 <resources>
     <string name="app_name">BanqueEnLigne</string>
     <string name="titreConnexion">Connexion</string>
+    <string name="mes_comptes">Mes Comptes</string>
+    <string name="img_error">Issoui</string>
+    <string name="comptes_courants">Comptes Courants</string>
+    <string name="epargne">Epargne disponible</string>
 </resources>
