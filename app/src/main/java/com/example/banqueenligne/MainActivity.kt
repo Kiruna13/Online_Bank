@@ -9,6 +9,6 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         requestWindowFeature(Window.FEATURE_NO_TITLE)
         supportActionBar?.hide()
-        setContentView(R.layout.activity_main)
+        setContentView(R.layout.connexion)
     }
 }
