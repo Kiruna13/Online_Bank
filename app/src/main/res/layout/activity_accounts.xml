@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Accounts">
+
+    <!-- TOP PAGE -->
+    <LinearLayout
+        android:id="@+id/topLayout"
+        android:layout_width="match_parent"
+        android:layout_height="120dp"
+        android:background="@drawable/img_comptes"
+        tools:ignore="MissingConstraints">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginStart="10dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginBottom="5dp"
+            android:gravity="bottom"
+            android:text="@string/mes_comptes"
+            android:textColor="@color/white"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            tools:ignore="MissingConstraints"
+            tools:layout_editor_absoluteX="0dp"
+            tools:layout_editor_absoluteY="1dp" />
+    </LinearLayout>
+
+    <!-- PAGE PART'S WITH THE ACCOUNTS  / EPARGNE -->
+    <com.google.android.flexbox.FlexboxLayout
+        android:id="@+id/displayAll"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:flexDirection="column"
+        app:justifyContent="space_between"
+        app:layout_constraintTop_toBottomOf="@+id/topLayout"
+        tools:ignore="MissingClass,MissingConstraints"
+        tools:layout_editor_absoluteX="0dp">
+
+        <!-- COMPTES COURANTS -->
+        <LinearLayout
+            android:id="@+id/accounts"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="295dp"
+                android:layout_height="40dp"
+                android:layout_marginStart="15dp"
+                android:layout_marginLeft="15dp"
+                android:gravity="bottom"
+                android:text="@string/comptes_courants"
+                android:textSize="18sp" />
+
+            <com.google.android.flexbox.FlexboxLayout
+                android:id="@+id/displayAccount"
+                android:layout_width="328dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/rectangle_comptes"
+                android:orientation="horizontal"
+                app:flexDirection="column"
+                app:justifyContent="space_between"
+                tools:ignore="MissingClass">
+
+                <com.google.android.flexbox.FlexboxLayout
+                    android:id="@+id/flexText"
+                    android:layout_width="match_parent"
+                    android:layout_height="25dp"
+                    android:orientation="horizontal"
+                    app:flexDirection="row"
+                    app:justifyContent="space_between"
+                    tools:ignore="MissingClass">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Compte CHQ"
+                        android:textSize="15sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="+1555,55€"
+                        android:textColor="@color/green"
+                        android:textSize="16sp" />
+                </com.google.android.flexbox.FlexboxLayout>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="MLLE GONCALVES LAURA"
+                    android:textSize="16sp" />
+
+            </com.google.android.flexbox.FlexboxLayout>
+
+        </LinearLayout>
+
+        <!-- EPARGNE -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="611dp"
+            android:orientation="vertical"
+            app:layout_constraintTop_toBottomOf="@+id/accounts">
+
+            <TextView
+                android:layout_width="295dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="15dp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="20dp"
+                android:gravity="bottom"
+                android:text="@string/epargne"
+                android:textSize="18sp" />
+
+            <com.google.android.flexbox.FlexboxLayout
+                android:id="@+id/displayEpargne"
+                android:layout_width="328dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/rectangle_comptes"
+                android:orientation="horizontal"
+                app:flexDirection="column"
+                app:justifyContent="space_between"
+                tools:ignore="MissingClass">
+
+                <com.google.android.flexbox.FlexboxLayout
+                    android:id="@+id/flexEpargne"
+                    android:layout_width="match_parent"
+                    android:layout_height="25dp"
+                    android:orientation="horizontal"
+                    app:flexDirection="row"
+                    app:justifyContent="space_between"
+                    tools:ignore="MissingClass">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Epargne"
+                        android:textSize="15sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="+1000,50€"
+                        android:textColor="@color/green"
+                        android:textSize="16sp" />
+                </com.google.android.flexbox.FlexboxLayout>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="MLLE GONCALVES LAURA"
+                    android:textSize="16sp" />
+
+            </com.google.android.flexbox.FlexboxLayout>
+        </LinearLayout>
+
+    </com.google.android.flexbox.FlexboxLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
