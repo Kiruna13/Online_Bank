@@ -38,17 +38,83 @@
 
 
 
-        <EditText
-            android:id="@+id/depuis"
+        <com.google.android.flexbox.FlexboxLayout
+            android:id="@+id/displayDepuis"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
             android:layout_marginLeft="20dp"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="30dp"
             android:layout_marginRight="20dp"
-            android:background="@drawable/border"
-            android:hint="0.00€"
-            android:padding="10dp"
-            android:textSize="25sp" />
+            android:background="@drawable/rectangle_comptes"
+            android:orientation="horizontal"
+            app:flexDirection="row"
+            tools:ignore="MissingClass"
+            android:onClick="toDepuisCompte">
+
+
+            <ImageView
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_marginRight="10dp"
+                android:src="@drawable/baseline_unarchive_black_24dp"/>
+            <TextView
+
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Depuis le compte"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+        </com.google.android.flexbox.FlexboxLayout>
+        <com.google.android.flexbox.FlexboxLayout
+            android:id="@+id/displayVers"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginRight="20dp"
+            android:background="@drawable/rectangle_comptes"
+            android:orientation="horizontal"
+            app:flexDirection="row"
+            tools:ignore="MissingClass"
+            android:onClick="toVersCompte">
+
+            <ImageView
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_marginRight="10dp"
+                android:src="@drawable/baseline_archive_black_24dp"/>
+            <TextView
+
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Vers le compte"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+        </com.google.android.flexbox.FlexboxLayout>
+
+        <com.google.android.flexbox.FlexboxLayout
+            android:id="@+id/displayContinue"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="100dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginRight="100dp"
+            android:background="@drawable/rectangle_comptes"
+            android:orientation="horizontal"
+            app:flexDirection="row"
+            app:justifyContent="center"
+            tools:ignore="MissingClass">
+
+            <TextView
+
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Continuer"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+        </com.google.android.flexbox.FlexboxLayout>
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
