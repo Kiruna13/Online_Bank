@@ -150,6 +150,102 @@
                 }
                 break;
 
+            case 'getTransaction':
+                if (isset($_POST['account_id'])) {
+                    $db = new DbOperation();
+                    $transactions = $db->getTransaction($_POST['account_id']);
+                    if (count($transactions) <= 0) {
+                        $response['error'] = false;
+                        $response['message'] = 'No results';
+                    } else {
+                        $response['error'] = false;
+                        $response['message'] = $transactions;
+                    }
+                } else {
+                    $response['error'] = true;
+                    $response['message'] = 'Missing required parameters';
+                }
+                break;
+
+            case 'doTransaction':
+                if (isset($_POST['amount']) && isset($_POST['account_id'])) {
+                    $db = new DbOperation();
+                    if (!isset($_POST['intern_account_id'])) {
+                        $transaction = $db->doTransaction($_POST['amount'], $_POST['person_id'], $_POST['account_id'], null);
+                    } else {
+                        $transaction = $db->doTransaction($_POST['amount'], null, $_POST['account_id'], $_POST['intern_account_id']);
+                    }
+                    if ($transaction == true) {
+                        $response['error'] = false;
+                        $response['message'] = 'Transaction done successfully';
+                    } else {
+                        $response['error'] = true;
+                        $response['message'] = 'Not enough money on the account';
+                    }
+                } else {
+                    $response['error'] = true;
+                    $response['message'] = 'Missing required parameters';
+                }
+                break;
+
+            case 'getBeneficiaires':
+                if (isset($_POST['user_id'])) {
+                    $db = new DbOperation();
+                    $beneficiaires = $db->getBeneficiaires($_POST['user_id']);
+                    if (count($beneficiaires) <= 0) {
+                        $response['error'] = false;
+                        $response['message'] = 'No results';
+                    } else {
+                        $response['error'] = false;
+                        $response['message'] = $beneficiaires;
+                    }
+                } else {
+                    $response['error'] = true;
+                    $response['message'] = 'Missing required parameters';
+                }
+                break;
+
+            case 'addBeneficiaire':
+                if (isset($_POST['user_id']) && isset($_POST['name']) && isset($_POST['first_name']) && isset($_POST['rib'])) {
+                    $db = new DbOperation();
+                    $db->addBeneficiaire($_POST['user_id'], $_POST['name'], $_POST['first_name'], $_POST['rib']);
+                    $response['error'] = false;
+                    $response['message'] = 'Beneficiaire created successfully';
+                } else {
+                    $response['error'] = true;
+                    $response['message'] = 'Missing required parameters';
+                }
+                break;
+
+            case 'deleteBeneficiaire':
+                if (isset($_POST['person_id']) && isset($_POST['user_id'])) {
+                    $db = new DbOperation();
+                    $db->deleteBeneficiaire($_POST['person_id'], $_POST['user_id']);
+                    $response['error'] = false;
+                    $response['message'] = 'Beneficiaire deleted successfully';
+                } else {
+                    $response['error'] = true;
+                    $response['message'] = 'Missing required parameters';
+                }
+                break;
+
+            case 'getAccounts':
+                if (isset($_POST['user_id'])) {
+                    $db = new DbOperation();
+                    $accounts = $db->getAccounts($_POST['user_id']);
+                    if (count($accounts) <= 0) {
+                        $response['error'] = false;
+                        $response['message'] = 'No results';
+                    } else {
+                        $response['error'] = false;
+                        $response['message'] = $accounts;
+                    }
+                } else {
+                    $response['error'] = true;
+                    $response['message'] = 'Missing required parameters';
+                }
+                break;
+
             default:
 				$response['error'] = true;
 				$response['message'] = 'No operation to perform';
