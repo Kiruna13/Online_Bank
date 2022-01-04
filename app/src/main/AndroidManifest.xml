@@ -20,6 +20,11 @@
             </intent-filter>
         </activity>
         <activity android:name=".Accounts"/>
+        <activity android:name=".Virement"/>
+        <activity android:name=".MakeVirement"/>
+        <activity android:name=".DepuisCompte"/>
+        <activity android:name=".VersCompte"/>
+
     </application>
 
 </manifest>

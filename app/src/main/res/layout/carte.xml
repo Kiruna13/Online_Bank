@@ -1,0 +1,207 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+        tools:context=".carte">
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:gravity="center"
+            android:text="Visa Premier"
+            tools:layout_editor_absoluteX="165dp"
+            tools:layout_editor_absoluteY="16dp" />
+
+        <View
+            android:id="@+id/divider2"
+            android:layout_width="wrap_content"
+            android:layout_height="5dp"
+            android:background="?android:attr/listDivider" />
+
+        <ImageView
+            android:id="@+id/Image"
+            android:layout_width="300dp"
+            android:layout_height="150dp"
+            android:layout_marginTop="10dp"
+            android:gravity="center"
+            android:src="@drawable/carte" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="2dp"
+            android:text="GONCALVES - LAURA" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="xxxx-xxxx-xxxx-2486" />
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:id="@+id/parametre"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="100dp"
+        android:gravity="center_vertical"
+        tools:context=".carte">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Vérouilage Temporaire" />
+
+
+        <com.google.android.material.chip.Chip
+            android:layout_width="80dp"
+            android:layout_height="wrap_content">
+        </com.google.android.material.chip.Chip>
+
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="20dp"
+        android:gravity="center_vertical"
+        tools:context=".carte"
+        tools:ignore="MissingConstraints">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="faire oppositions" />
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="50dp"
+        android:gravity="center_vertical"
+        tools:context=".carte"
+        tools:ignore="MissingConstraints">
+
+        <View
+            android:id="@+id/divider3"
+            android:layout_width="wrap_content"
+            android:layout_height="5dp"
+            android:background="?android:attr/listDivider" />
+    </LinearLayout>
+
+
+
+
+
+
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="150dp"
+        android:gravity="center_vertical"
+        tools:context=".carte"
+        tools:ignore="MissingConstraints">
+
+        <TextView
+
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textStyle="bold"
+            android:text="Réglages" />
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="200dp"
+        android:gravity="center_vertical"
+        tools:context=".carte"
+        tools:ignore="MissingConstraints">
+
+        <View
+            android:id="@+id/divider6"
+            android:layout_width="wrap_content"
+            android:layout_height="5dp"
+            android:background="?android:attr/listDivider" />
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:id="@+id/Reglages"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="250dp"
+        android:gravity="center_vertical"
+        tools:context=".carte">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Paiement à distance" />
+
+
+        <com.google.android.material.chip.Chip
+            android:layout_width="80dp"
+            android:layout_height="wrap_content">
+        </com.google.android.material.chip.Chip>
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="300dp"
+        android:gravity="center_vertical"
+        tools:context=".carte"
+        tools:ignore="MissingConstraints">
+
+        <View
+            android:id="@+id/divider7"
+            android:layout_width="wrap_content"
+            android:layout_height="5dp"
+            android:background="?android:attr/listDivider" />
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:id="@+id/Reglages2"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="350dp"
+        android:gravity="center_vertical"
+        tools:context=".carte">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Paiement et retraits a l'étranger " />
+
+
+        <com.google.android.material.chip.Chip
+            android:layout_width="80dp"
+            android:layout_height="wrap_content">
+        </com.google.android.material.chip.Chip>
+
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
