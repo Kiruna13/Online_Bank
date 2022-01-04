@@ -106,74 +106,16 @@
     </LinearLayout>
 
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginTop="60dp"
-        android:gravity="center_vertical"
-        tools:context=".carte"
-        tools:ignore="MissingConstraints">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Gérer mes plafonds" />
 
-    </LinearLayout>
+
+
 
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="30dp"
-        android:gravity="center_vertical"
-        tools:context=".carte"
-        tools:ignore="MissingConstraints">
-
-        <View
-            android:id="@+id/divider4"
-            android:layout_width="wrap_content"
-            android:layout_height="5dp"
-            android:background="?android:attr/listDivider" />
-    </LinearLayout>
-
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginTop="110dp"
-        android:gravity="center_vertical"
-        tools:context=".carte"
-        tools:ignore="MissingConstraints">
-
-        <View
-            android:id="@+id/divider5"
-            android:layout_width="wrap_content"
-            android:layout_height="5dp"
-            android:background="?android:attr/listDivider" />
-    </LinearLayout>
-
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginTop="140dp"
-        android:gravity="center_vertical"
-        tools:context=".carte"
-        tools:ignore="MissingConstraints">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Voir mon code secret" />
-
-    </LinearLayout>
-
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginTop="250dp"
+        android:layout_marginTop="150dp"
         android:gravity="center_vertical"
         tools:context=".carte"
         tools:ignore="MissingConstraints">
@@ -191,7 +133,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="300dp"
+        android:layout_marginTop="200dp"
         android:gravity="center_vertical"
         tools:context=".carte"
         tools:ignore="MissingConstraints">
@@ -208,7 +150,7 @@
         android:id="@+id/Reglages"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="350dp"
+        android:layout_marginTop="250dp"
         android:gravity="center_vertical"
         tools:context=".carte">
 
@@ -229,7 +171,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="400dp"
+        android:layout_marginTop="300dp"
         android:gravity="center_vertical"
         tools:context=".carte"
         tools:ignore="MissingConstraints">
@@ -246,7 +188,7 @@
         android:id="@+id/Reglages2"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="450dp"
+        android:layout_marginTop="350dp"
         android:gravity="center_vertical"
         tools:context=".carte">
 
