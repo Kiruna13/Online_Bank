@@ -149,9 +149,9 @@ class DbOperation
     //METHOD : GET
     //RÉCUPÈRE LES INFORMATIONS DE LA CARTE DONNÉE
     //TODO : Revoir à quoi est liée la carte (compte ou utilisateur) => changer le paramètre de la fonction
-    public function getCard($account_name) {
-        $stmt = $this->con->prepare("SELECT ca.plafond, ca.actif, ca.en_opposition, ca.paiement_distance, ca.paiement_etranger, ca.id_compte FROM carte ca, compte co WHERE co.id = ca.id_compte AND co.nom = ?");
-        $stmt->bind_param("s", $account_name);
+    public function getCard($user_id) {
+        $stmt = $this->con->prepare("SELECT ca.plafond, ca.actif, ca.en_opposition, ca.paiement_distance, ca.paiement_etranger, ca.id_compte FROM carte ca, compte co, utilisateur u WHERE ca.id_compte = co.id AND co.id_utilisateur = u.id AND u.id = ?");
+        $stmt->bind_param("i", $user_id);
         $stmt->execute();
         $stmt->bind_result($ceiling, $locked_status, $opposition_status, $distance_status, $foreign_status, $account_id);
         $card = array();

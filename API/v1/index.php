@@ -98,9 +98,9 @@
                 break;
 
             case 'getCard':
-                if (isset($_POST['account_name'])) {
+                if (isset($_POST['user_id'])) {
                     $db = new DbOperation();
-                    $card = $db->getCard($_POST['account_name']);
+                    $card = $db->getCard($_POST['user_id']);
                     if (count($card) <= 0) {
                         $response['error'] = false;
                         $response['message'] = 'No results';

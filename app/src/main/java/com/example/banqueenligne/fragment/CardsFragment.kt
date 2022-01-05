@@ -38,7 +38,7 @@ class CardsFragment : Fragment() {
         var fetchedUser = arguments?.getString("user")
         var user = JSONObject(fetchedUser)
         var name :String = user["name"].toString()
-        var firstname :String = user["firstname"].toString()
+        var firstname :String = user["first_name"].toString()
         val view = inflater.inflate(R.layout.fragment_cards, container, false)
         view.findViewById<TextView>(R.id.name).text = concat(name, " ", firstname).toUpperCase()
         // Inflate the layout for this fragment
