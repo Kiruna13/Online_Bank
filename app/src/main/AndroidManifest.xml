@@ -12,7 +12,8 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.BanqueEnLigne"
         android:usesCleartextTraffic="true">
-        <activity android:name=".DetailBeneficiaire"></activity>
+        <activity android:name=".AddBeneficiaire"></activity>
+        <activity android:name=".DetailBeneficiaire" />
         <activity android:name=".MesBeneficiaires" /> <!-- <activity android:name=".Connexion"> -->
         <!-- <intent-filter> -->
         <!-- <action android:name="android.intent.action.MAIN" /> -->

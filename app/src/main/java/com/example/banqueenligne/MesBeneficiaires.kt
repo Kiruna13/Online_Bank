@@ -7,6 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.view.Window
+import android.widget.Button
 import com.google.android.flexbox.FlexboxLayout
 
 class MesBeneficiaires : AppCompatActivity(), View.OnClickListener {
@@ -18,13 +19,16 @@ class MesBeneficiaires : AppCompatActivity(), View.OnClickListener {
         val b = findViewById<FlexboxLayout>(R.id.displayBeneficiaire)
         b.setOnClickListener(this)
 
+        val addBeneficiaires = findViewById<Button>(R.id.btn_add_beneficiaire)
+        addBeneficiaires.setOnClickListener(this)
+
         //actionbar
         val actionbar = supportActionBar
         //set actionbar title
         actionbar!!.title = "Mes bénéficiaires"
         //set back button
         actionbar.setDisplayHomeAsUpEnabled(true)
-        actionbar.setDisplayHomeAsUpEnabled(true)
+//        actionbar.setHomeAsUpIndicator(R.drawable.ic_action_close);
     }
 
     override fun onSupportNavigateUp(): Boolean {
@@ -35,6 +39,7 @@ class MesBeneficiaires : AppCompatActivity(), View.OnClickListener {
     override fun onClick(view: View) {
         when (view.getId()) {
             R.id.displayBeneficiaire -> startActivity(Intent(this@MesBeneficiaires, DetailBeneficiaire::class.java))
+            R.id.btn_add_beneficiaire -> startActivity(Intent(this@MesBeneficiaires, AddBeneficiaire::class.java))
         }
     }
 }

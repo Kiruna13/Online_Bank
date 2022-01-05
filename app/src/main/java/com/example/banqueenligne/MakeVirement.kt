@@ -20,7 +20,6 @@ class MakeVirement : AppCompatActivity() {
         actionbar!!.title = "Virement"
         //set back button
         actionbar.setDisplayHomeAsUpEnabled(true)
-        actionbar.setDisplayHomeAsUpEnabled(true)
     }
 
     override fun onSupportNavigateUp(): Boolean {
