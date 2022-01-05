@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3308
--- Généré le :  lun. 03 jan. 2022 à 21:47
+-- Généré le :  mer. 05 jan. 2022 à 12:55
 -- Version du serveur :  5.7.28
 -- Version de PHP :  7.3.12
 
@@ -49,6 +49,8 @@ CREATE TABLE IF NOT EXISTS `carte` (
   `plafond` double NOT NULL,
   `actif` tinyint(1) NOT NULL DEFAULT '1',
   `en_opposition` tinyint(1) NOT NULL DEFAULT '0',
+  `paiement_distance` tinyint(1) NOT NULL DEFAULT '1',
+  `paiement_etranger` tinyint(1) NOT NULL DEFAULT '1',
   `id_compte` int(11) NOT NULL,
   PRIMARY KEY (`id`),
   KEY `id_compte` (`id_compte`)
@@ -58,8 +60,8 @@ CREATE TABLE IF NOT EXISTS `carte` (
 -- Déchargement des données de la table `carte`
 --
 
-INSERT INTO `carte` (`id`, `plafond`, `actif`, `en_opposition`, `id_compte`) VALUES
-(3, 1669, 1, 0, 3);
+INSERT INTO `carte` (`id`, `plafond`, `actif`, `en_opposition`, `paiement_distance`, `paiement_etranger`, `id_compte`) VALUES
+(3, 1669, 1, 1, 0, 0, 3);
 
 -- --------------------------------------------------------
 
@@ -76,7 +78,7 @@ CREATE TABLE IF NOT EXISTS `compte` (
   PRIMARY KEY (`id`),
   KEY `id_compte` (`id_utilisateur`),
   KEY `id_utilisateur` (`id_utilisateur`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=latin1;
 
 --
 -- Déchargement des données de la table `compte`
@@ -84,8 +86,10 @@ CREATE TABLE IF NOT EXISTS `compte` (
 
 INSERT INTO `compte` (`id`, `nom`, `solde`, `id_utilisateur`) VALUES
 (3, 'Compte courant de Hugo Degardin', 1000, 1),
-(4, 'compte cool', 0, 1),
-(5, 'compte cool version 2', 0, 1);
+(4, 'compte cool', 6, 1),
+(5, 'compte cool version 2', 40, 1),
+(6, 'Compte courant de Marylene Gaber', 1073, 2),
+(7, 'compte rigolo starfoula', 0, 2);
 
 -- --------------------------------------------------------
 
@@ -100,14 +104,16 @@ CREATE TABLE IF NOT EXISTS `personne` (
   `prenom` varchar(255) NOT NULL,
   `rib` varchar(255) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
 
 --
 -- Déchargement des données de la table `personne`
 --
 
 INSERT INTO `personne` (`id`, `nom`, `prenom`, `rib`) VALUES
-(1, 'Degardin', 'Hugo', 'FR0511918919');
+(1, 'Degardin', 'Hugo', 'FR0511918919'),
+(2, 'Gaber', 'Marylene', 'FR7630006000011234567890187'),
+(3, 'Gaber', 'Khalid', 'FR69');
 
 -- --------------------------------------------------------
 
@@ -120,12 +126,24 @@ CREATE TABLE IF NOT EXISTS `transaction` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `montant` double NOT NULL DEFAULT '0',
   `date` date NOT NULL,
-  `id_personne` int(11) NOT NULL,
+  `id_personne` int(11) DEFAULT NULL,
   `id_compte` int(11) NOT NULL,
+  `id_compte_interne` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `id_personne` (`id_personne`),
   KEY `id_compte` (`id_compte`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=27 DEFAULT CHARSET=latin1;
+
+--
+-- Déchargement des données de la table `transaction`
+--
+
+INSERT INTO `transaction` (`id`, `montant`, `date`, `id_personne`, `id_compte`, `id_compte_interne`) VALUES
+(22, 1, '2022-01-04', 2, 4, NULL),
+(23, 1, '2022-01-04', 2, 4, NULL),
+(24, 10, '2022-01-04', NULL, 4, 5),
+(25, 10, '2022-01-04', NULL, 4, 5),
+(26, 10, '2022-01-04', NULL, 4, 5);
 
 -- --------------------------------------------------------
 
@@ -141,14 +159,15 @@ CREATE TABLE IF NOT EXISTS `utilisateur` (
   `id_personne` int(11) NOT NULL,
   PRIMARY KEY (`id`),
   KEY `id_personne` (`id_personne`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
 
 --
 -- Déchargement des données de la table `utilisateur`
 --
 
 INSERT INTO `utilisateur` (`id`, `identifiant`, `code_secu`, `id_personne`) VALUES
-(1, '123412', '827ccb0eea8a706c4c34a16891f84e7b', 1);
+(1, '123412', '827ccb0eea8a706c4c34a16891f84e7b', 1),
+(2, '156248', '827ccb0eea8a706c4c34a16891f84e7b', 2);
 
 --
 -- Contraintes pour les tables déchargées
@@ -177,8 +196,7 @@ ALTER TABLE `compte`
 -- Contraintes pour la table `transaction`
 --
 ALTER TABLE `transaction`
-  ADD CONSTRAINT `Transaction_ibfk_1` FOREIGN KEY (`id_personne`) REFERENCES `personne` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `Transaction_ibfk_2` FOREIGN KEY (`id_compte`) REFERENCES `compte` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `Transaction_ibfk_1` FOREIGN KEY (`id_personne`) REFERENCES `personne` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Contraintes pour la table `utilisateur`
