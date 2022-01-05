@@ -67,18 +67,6 @@
             android:textStyle="bold"
             android:text="Nom du bénéficiaire recuperer dans l'api " />
 
-        <Button
-            android:id="@+id/btn_edit"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:textAlignment="center"
-            android:layout_marginRight="20dp"
-            android:layout_marginLeft="20dp"
-            android:layout_marginTop="380dp"
-            android:layout_gravity="center_horizontal"
-            android:backgroundTint="@color/buttonColor"
-            android:text="Modifier" />
 
         <Button
             android:id="@+id/btn_delete"
@@ -88,6 +76,7 @@
             android:textAlignment="center"
             android:layout_marginRight="20dp"
             android:layout_marginLeft="20dp"
+            android:layout_marginTop="380dp"
             android:layout_gravity="center_horizontal"
             android:backgroundTint="@color/white"
             android:textColor="@color/red"
