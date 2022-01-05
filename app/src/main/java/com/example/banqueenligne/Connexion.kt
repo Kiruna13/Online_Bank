@@ -44,7 +44,7 @@ class Connexion : AppCompatActivity() {
     fun userConnection() {
         val identifiant = identifiantInput?.text.toString()
         val password = passwordInput?.text.toString()
-        val url = "http://192.168.0.36/onlineBankAPI/v1/?op=getPassword" //IP A CHANGER
+        val url = "http://192.168.0.18/onlineBankAPI/v1/?op=getPassword" //IP A CHANGER
         lateinit var data : JSONObject
 
         val request = object : StringRequest(Request.Method.POST, url,
@@ -73,7 +73,7 @@ class Connexion : AppCompatActivity() {
         if (cryptedPassword.equals(fetchedPassword)) {
 
             val identifiant = identifiantInput?.text.toString()
-            val url = "http://192.168.0.36/onlineBankAPI/v1/?op=getUser"
+            val url = "http://192.168.0.18/onlineBankAPI/v1/?op=getUser"
             lateinit var data : JSONObject
 
             val request = object : StringRequest(Request.Method.POST, url,
