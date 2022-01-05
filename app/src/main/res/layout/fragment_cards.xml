@@ -68,8 +68,8 @@
 
 
         <CheckBox
-            android:layout_width="20dp"
-            android:layout_height="20dp"
+            android:layout_width="30dp"
+            android:layout_height="25dp"
         />
 
     </LinearLayout>
@@ -111,7 +111,6 @@
         android:layout_marginTop="150dp"
         android:layout_marginLeft="20dp"
         android:gravity="center_vertical"
-        tools:context=".carte"
         tools:ignore="MissingConstraints">
 
         <TextView
@@ -157,8 +156,8 @@
 
 
         <CheckBox
-            android:layout_width="20dp"
-            android:layout_height="20dp"
+            android:layout_width="30dp"
+            android:layout_height="25dp"
             />
 
     </LinearLayout>
@@ -197,8 +196,8 @@
 
 
         <CheckBox
-            android:layout_width="20dp"
-            android:layout_height="20dp"
+            android:layout_width="30dp"
+            android:layout_height="25dp"
             />
 
     </LinearLayout>
