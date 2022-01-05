@@ -23,7 +23,6 @@ class DetailBeneficiaire : AppCompatActivity(), View.OnClickListener {
         actionbar!!.title = "Détails bénéficiaire"
         //set back button
         actionbar.setDisplayHomeAsUpEnabled(true)
-        actionbar.setDisplayHomeAsUpEnabled(true)
     }
 
     override fun onSupportNavigateUp(): Boolean {

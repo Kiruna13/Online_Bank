@@ -8,9 +8,11 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="0dp"
         tools:ignore="MissingConstraints"
         android:orientation="vertical"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/add_beneficiaire"
         >
 
         <com.google.android.flexbox.FlexboxLayout
@@ -61,6 +63,26 @@
             android:background="@color/black"
             android:layout_marginTop="15dp"
             />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/add_beneficiaire"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:gravity="center"
+        app:layout_constraintBottom_toBottomOf="parent"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="0dp">
+
+        <Button
+            android:id="@+id/btn_add_beneficiaire"
+            android:layout_width="350dp"
+            android:layout_height="wrap_content"
+            android:background="@color/red"
+            android:text="Ajouter un bénéficiaire"
+            tools:ignore="MissingConstraints"/>
 
     </LinearLayout>
 
