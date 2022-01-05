@@ -9,6 +9,8 @@ import androidx.fragment.app.Fragment
 import com.example.banqueenligne.MakeVirement
 import com.example.banqueenligne.R
 import com.google.android.flexbox.FlexboxLayout
+import org.json.JSONArray
+import org.json.JSONObject
 
 
 // TODO: Rename parameter arguments, choose names that match
@@ -28,10 +30,8 @@ class AccountsFragment : Fragment(), View.OnClickListener {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
-        }
+        var fetchedUser = arguments?.getString("user")
+        var user = JSONObject(fetchedUser)
     }
 
     override fun onCreateView(
@@ -49,7 +49,6 @@ class AccountsFragment : Fragment(), View.OnClickListener {
     override fun onClick(view: View) {
         when (view.getId()) {
             R.id.displayAccount -> startActivity(Intent(context, MakeVirement::class.java))
-
         }
     }
 

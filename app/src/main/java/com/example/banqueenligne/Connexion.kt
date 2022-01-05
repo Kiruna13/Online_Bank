@@ -1,22 +1,22 @@
 package com.example.banqueenligne
 
+import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import android.view.View
 import android.view.Window
 import android.widget.Button
 import android.widget.EditText
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.fragment.app.Fragment
 import com.android.volley.*
-import com.android.volley.toolbox.JsonObjectRequest
 import com.android.volley.toolbox.StringRequest
 import com.android.volley.toolbox.Volley
-import com.google.android.material.snackbar.Snackbar
-import org.json.JSONException
+import com.example.banqueenligne.fragment.AccountsFragment
+import org.json.JSONArray
 import org.json.JSONObject
 import java.math.BigInteger
 import java.security.MessageDigest
+
 
 class Connexion : AppCompatActivity() {
 
@@ -71,13 +71,43 @@ class Connexion : AppCompatActivity() {
     fun authentication(password : String, fetchedPassword : String) {
         val cryptedPassword = toMd5(password)
         if (cryptedPassword.equals(fetchedPassword)) {
-            println("AUTHENTIFICATION REUSSIE")
+
+            val identifiant = identifiantInput?.text.toString()
+            val url = "http://192.168.0.36/onlineBankAPI/v1/?op=getUser"
+            lateinit var data : JSONObject
+
+            val request = object : StringRequest(Request.Method.POST, url,
+                Response.Listener<String> { response ->
+                    data = JSONObject(response)
+                    var user = data.optJSONArray("user")
+                    var fetchedUser = user!!.getJSONObject(0)
+                    nextActivity(fetchedUser)
+                },
+                Response.ErrorListener { error : VolleyError ->
+                    println(error)
+                }) {
+                @Throws(AuthFailureError::class)
+                override fun getParams() : Map<String, String> {
+                    val params = HashMap<String, String>()
+                    params["identifiant"] = identifiant
+                    return params
+                }
+            }
+
+            mQueue.add(request)
         }
     }
 
     fun toMd5(input:String): String {
         val md = MessageDigest.getInstance("MD5")
         return BigInteger(1, md.digest(input.toByteArray())).toString(16).padStart(32, '0')
+    }
+
+    fun nextActivity(fetchedUser : JSONObject) {
+        var intent : Intent = Intent(this, MainActivity::class.java)
+        intent.putExtra("user", fetchedUser.toString())
+        intent.putExtra("fragmentNumber", 1)
+        startActivity(intent)
     }
 
 }

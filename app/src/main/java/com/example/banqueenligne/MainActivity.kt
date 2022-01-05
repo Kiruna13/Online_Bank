@@ -19,6 +19,12 @@ class MainActivity : AppCompatActivity() {
         requestWindowFeature(Window.FEATURE_NO_TITLE)
         supportActionBar?.hide()
         setContentView(R.layout.activity_main)
+
+        val bundle = Bundle()
+        bundle.putString("user", intent.getStringExtra("user"))
+        accountsFragment.arguments = bundle
+        virementFragment.arguments = bundle
+        cardsFragment.arguments = bundle
         replaceFragment(accountsFragment)
 
         val navigation = findViewById<BottomNavigationView>(R.id.bottom_navigation)
