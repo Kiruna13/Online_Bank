@@ -138,6 +138,30 @@
                 }
                 break;
 
+            case 'switchCardDistanceStatus':
+                if (isset($_POST['account_name'])) {
+                    $db = new DbOperation();
+                    $db->switchCardDistanceStatus($_POST['account_name']);
+                    $response['error'] = false;
+                    $response['message'] = 'Distance status changed successfully';
+                } else {
+                    $response['error'] = true;
+                    $response['message'] = 'Missing required parameters';
+                }
+                break;
+
+            case 'switchCardForeignStatus':
+                if (isset($_POST['account_name'])) {
+                    $db = new DbOperation();
+                    $db->switchCardForeignStatus($_POST['account_name']);
+                    $response['error'] = false;
+                    $response['message'] = 'Foreign status changed successfully';
+                } else {
+                    $response['error'] = true;
+                    $response['message'] = 'Missing required parameters';
+                }
+                break;
+
             case 'setCardCeiling':
                 if (isset($_POST['ceiling']) && isset($_POST['account_name'])) {
                     $db = new DbOperation();

@@ -150,10 +150,10 @@ class DbOperation
     //RÉCUPÈRE LES INFORMATIONS DE LA CARTE DONNÉE
     //TODO : Revoir à quoi est liée la carte (compte ou utilisateur) => changer le paramètre de la fonction
     public function getCard($account_name) {
-        $stmt = $this->con->prepare("SELECT ca.plafond, ca.actif, ca.en_opposition, ca.id_compte FROM carte ca, compte co WHERE co.id = ca.id_compte AND co.nom = ?");
+        $stmt = $this->con->prepare("SELECT ca.plafond, ca.actif, ca.en_opposition, ca.paiement_distance, ca.paiement_etranger, ca.id_compte FROM carte ca, compte co WHERE co.id = ca.id_compte AND co.nom = ?");
         $stmt->bind_param("s", $account_name);
         $stmt->execute();
-        $stmt->bind_result($ceiling, $locked_status, $opposition_status, $account_id);
+        $stmt->bind_result($ceiling, $locked_status, $opposition_status, $distance_status, $foreign_status, $account_id);
         $card = array();
 
         while($stmt->fetch()){
@@ -161,6 +161,8 @@ class DbOperation
             $temp['ceiling'] = $ceiling;
             $temp['locked_status'] = $locked_status;
             $temp['opposition_status'] = $opposition_status;
+            $temp['distance_status'] = $distance_status;
+            $temp['foreign_status'] = $foreign_status;
             $temp['account_id'] = $account_id;
             array_push($card, $temp);
         }
@@ -194,6 +196,36 @@ class DbOperation
         }
         $stmt = $this->con->prepare("UPDATE carte SET en_opposition = ? WHERE id_compte = ?");
         $stmt->bind_param("ii", $set_opposition_status, $account_id);
+        $stmt->execute();
+    }
+
+    //METHOD : POST
+    //CHANGE L'ÉTAT "PAIEMENT DISTANCE" DE LA CARTE POUR UN COMPTE DONNÉ
+    //TODO : Revoir à quoi est liée la carte (compte ou utilisateur) => changer le paramètre de la fonction
+    public function switchCardDistanceStatus($account_name) {
+        $distance_status = $this->getCard($account_name)[0]['distance_status'];
+        $account_id = $this->getCard($account_name)[0]['account_id'];
+        $set_distance_status = 0;
+        if ($distance_status == 0) {
+            $set_distance_status = 1;
+        }
+        $stmt = $this->con->prepare("UPDATE carte SET paiement_distance = ? WHERE id_compte = ?");
+        $stmt->bind_param("ii", $set_distance_status, $account_id);
+        $stmt->execute();
+    }
+
+    //METHOD : POST
+    //CHANGE L'ÉTAT "PAIEMENT ÉTRANGER" DE LA CARTE POUR UN COMPTE DONNÉ
+    //TODO : Revoir à quoi est liée la carte (compte ou utilisateur) => changer le paramètre de la fonction
+    public function switchCardForeignStatus($account_name) {
+        $foreign_status = $this->getCard($account_name)[0]['foreign_status'];
+        $account_id = $this->getCard($account_name)[0]['account_id'];
+        $set_foreign_status = 0;
+        if ($foreign_status == 0) {
+            $set_foreign_status = 1;
+        }
+        $stmt = $this->con->prepare("UPDATE carte SET paiement_etranger = ? WHERE id_compte = ?");
+        $stmt->bind_param("ii", $set_foreign_status, $account_id);
         $stmt->execute();
     }
 

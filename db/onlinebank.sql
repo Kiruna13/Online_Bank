@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3308
--- Généré le :  mar. 04 jan. 2022 à 21:33
+-- Généré le :  mer. 05 jan. 2022 à 12:55
 -- Version du serveur :  5.7.28
 -- Version de PHP :  7.3.12
 
@@ -49,6 +49,8 @@ CREATE TABLE IF NOT EXISTS `carte` (
   `plafond` double NOT NULL,
   `actif` tinyint(1) NOT NULL DEFAULT '1',
   `en_opposition` tinyint(1) NOT NULL DEFAULT '0',
+  `paiement_distance` tinyint(1) NOT NULL DEFAULT '1',
+  `paiement_etranger` tinyint(1) NOT NULL DEFAULT '1',
   `id_compte` int(11) NOT NULL,
   PRIMARY KEY (`id`),
   KEY `id_compte` (`id_compte`)
@@ -58,8 +60,8 @@ CREATE TABLE IF NOT EXISTS `carte` (
 -- Déchargement des données de la table `carte`
 --
 
-INSERT INTO `carte` (`id`, `plafond`, `actif`, `en_opposition`, `id_compte`) VALUES
-(3, 1669, 1, 0, 3);
+INSERT INTO `carte` (`id`, `plafond`, `actif`, `en_opposition`, `paiement_distance`, `paiement_etranger`, `id_compte`) VALUES
+(3, 1669, 1, 1, 0, 0, 3);
 
 -- --------------------------------------------------------
 
