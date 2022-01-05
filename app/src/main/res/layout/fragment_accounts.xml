@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Accounts">
+    tools:context=".fragment.AccountsFragment">
 
     <!-- TOP PAGE -->
     <LinearLayout
@@ -68,7 +68,7 @@
                 android:orientation="horizontal"
                 app:flexDirection="column"
                 app:justifyContent="space_between"
-                tools:ignore="MissingClass">
+                tools:ignore="MissingClass,UsingOnClickInXml">
 
                 <com.google.android.flexbox.FlexboxLayout
                     android:id="@+id/flexText"
@@ -132,7 +132,7 @@
                 android:orientation="horizontal"
                 app:flexDirection="column"
                 app:justifyContent="space_between"
-                tools:ignore="MissingClass">
+                tools:ignore="MissingClass,UsingOnClickInXml">
 
                 <com.google.android.flexbox.FlexboxLayout
                     android:id="@+id/flexEpargne"

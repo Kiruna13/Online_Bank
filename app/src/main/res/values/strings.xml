@@ -5,4 +5,9 @@
     <string name="img_error">Issoui</string>
     <string name="comptes_courants">Comptes Courants</string>
     <string name="epargne">Epargne disponible</string>
+    <string name="footer_menu_accounts">Comptes</string>
+    <string name="footer_menu_virements">Virements</string>
+    <string name="footer_menu_cards">Cartes</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

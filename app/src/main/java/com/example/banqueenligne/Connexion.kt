@@ -48,22 +48,22 @@ class Connexion : AppCompatActivity() {
         lateinit var data : JSONObject
 
         val request = object : StringRequest(Request.Method.POST, url,
-                Response.Listener<String> { response ->
-                    data = JSONObject(response)
-                    var personnes = data.optJSONArray("personnes")
-                    var fetchedPassword : String = personnes!!.getJSONObject(0).optString("password")
-                    authentication(password, fetchedPassword)
-                },
-                Response.ErrorListener { error : VolleyError ->
-                    println(error)
-                }) {
-            @Throws(AuthFailureError::class)
-            override fun getParams() : Map<String, String> {
-                val params = HashMap<String, String>()
-                params["identifiant"] = identifiant
-                return params
+            Response.Listener<String> { response ->
+                data = JSONObject(response)
+                var personnes = data.optJSONArray("personnes")
+                var fetchedPassword : String = personnes!!.getJSONObject(0).optString("password")
+                authentication(password, fetchedPassword)
+            },
+            Response.ErrorListener { error : VolleyError ->
+                println(error)
+            }) {
+                @Throws(AuthFailureError::class)
+                override fun getParams() : Map<String, String> {
+                    val params = HashMap<String, String>()
+                    params["identifiant"] = identifiant
+                    return params
+                }
             }
-        }
 
         mQueue.add(request)
     }
