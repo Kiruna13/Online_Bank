@@ -16,53 +16,66 @@
         >
 
         <com.google.android.flexbox.FlexboxLayout
-            android:id="@+id/displayBeneficiaire"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            app:flexDirection="row"
-            android:layout_marginTop="30dp"
-            android:layout_marginLeft="20dp"
-            android:layout_marginRight="20dp"
-            tools:ignore="MissingClass,UsingOnClickInXml">
-
-            <com.google.android.flexbox.FlexboxLayout
+                android:id="@+id/list_beneficiaire"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
+                android:orientation="vertical"
                 app:flexDirection="column"
+                android:layout_marginTop="30dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
                 tools:ignore="MissingClass,UsingOnClickInXml">
 
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="DUCOULOMBIER THOMAS"
-                    android:textSize="18sp"
-                    />
 
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="FR76 5362 1220 3840 5080 8000 632"
-                    android:textSize="18sp"
-                    />
+<!--        <com.google.android.flexbox.FlexboxLayout-->
+<!--            android:id="@+id/displayBeneficiaire"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:orientation="horizontal"-->
+<!--            app:flexDirection="row"-->
+<!--            android:layout_marginTop="30dp"-->
+<!--            android:layout_marginLeft="20dp"-->
+<!--            android:layout_marginRight="20dp"-->
+<!--            tools:ignore="MissingClass,UsingOnClickInXml">-->
 
-            </com.google.android.flexbox.FlexboxLayout>
+<!--            <com.google.android.flexbox.FlexboxLayout-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:orientation="horizontal"-->
+<!--                app:flexDirection="column"-->
+<!--                tools:ignore="MissingClass,UsingOnClickInXml">-->
 
-            <androidx.appcompat.widget.AppCompatImageView
-                android:layout_width="100dp"
-                android:layout_height="wrap_content"
-                app:srcCompat="@drawable/ic_baseline_keyboard_arrow_right_24"
-                tools:ignore="VectorDrawableCompat" />
+<!--                <TextView-->
+<!--                    android:id="@+id/name"-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:textSize="18sp"-->
+<!--                    />-->
 
+<!--                <TextView-->
+<!--                    android:id="@+id/rib"-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:textSize="18sp"-->
+<!--                    />-->
+
+<!--            </com.google.android.flexbox.FlexboxLayout>-->
+
+<!--            <androidx.appcompat.widget.AppCompatImageView-->
+<!--                android:layout_width="100dp"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                app:srcCompat="@drawable/ic_baseline_keyboard_arrow_right_24"-->
+<!--                tools:ignore="VectorDrawableCompat" />-->
+
+<!--        </com.google.android.flexbox.FlexboxLayout>-->
+
+<!--        <View-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="1dp"-->
+<!--            android:background="@color/black"-->
+<!--            android:layout_marginTop="15dp"-->
+<!--            />-->
         </com.google.android.flexbox.FlexboxLayout>
-
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:background="@color/black"
-            android:layout_marginTop="15dp"
-            />
 
     </LinearLayout>
 

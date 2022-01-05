@@ -14,12 +14,7 @@
         android:usesCleartextTraffic="true">
         <activity android:name=".AddBeneficiaire"></activity>
         <activity android:name=".DetailBeneficiaire" />
-        <activity android:name=".MesBeneficiaires" /> <!-- <activity android:name=".Connexion"> -->
-        <!-- <intent-filter> -->
-        <!-- <action android:name="android.intent.action.MAIN" /> -->
-        <!-- <category android:name="android.intent.category.LAUNCHER" /> -->
-        <!-- </intent-filter> -->
-        <!-- </activity> -->
+        <activity android:name=".MesBeneficiaires" />
         <activity android:name=".Connexion">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

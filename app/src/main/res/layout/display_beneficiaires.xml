@@ -1,56 +1,60 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools">
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
+
         <com.google.android.flexbox.FlexboxLayout
-            android:id="@+id/displayInfos"
+            android:id="@+id/displayBeneficiaire"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="20dp"
-            android:layout_marginTop="30dp"
-            android:layout_marginRight="20dp"
-            android:background="@drawable/rectangle_comptes"
             android:orientation="horizontal"
             app:flexDirection="row"
-            app:justifyContent="space_between"
-            tools:ignore="MissingClass">
+            tools:ignore="MissingConstraints">
 
             <com.google.android.flexbox.FlexboxLayout
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
                 app:flexDirection="column"
-                tools:ignore="MissingClass"
-                >
+                tools:ignore="MissingClass,UsingOnClickInXml">
 
                 <TextView
                     android:id="@+id/name"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:textSize="15dp"
+                    android:layout_height="wrap_content"
+                    android:textSize="18sp"
                     />
+
                 <TextView
-                    android:id="@+id/nomCompte"
+                    android:id="@+id/rib"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:textSize="15dp"
+                    android:layout_height="wrap_content"
+                    android:textSize="18sp"
                     />
 
             </com.google.android.flexbox.FlexboxLayout>
-            <TextView
-                android:id="@+id/montant"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                />
-        </com.google.android.flexbox.FlexboxLayout>
-    </LinearLayout>
 
+            <androidx.appcompat.widget.AppCompatImageView
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                app:srcCompat="@drawable/ic_baseline_keyboard_arrow_right_24"
+                tools:ignore="VectorDrawableCompat" />
+
+        </com.google.android.flexbox.FlexboxLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/black"
+            android:layout_marginTop="15dp"
+            android:layout_marginBottom="20dp"
+            tools:ignore="MissingConstraints" />
+    </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

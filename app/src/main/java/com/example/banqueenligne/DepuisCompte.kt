@@ -22,7 +22,7 @@ class DepuisCompte : AppCompatActivity(){
     }
 
     fun listComptes() {
-        val url = "http://192.168.0.18/onlineBankAPI/v1/?op=getAccounts" //IP A CHANGER
+        val url = "http://192.168.1.26/onlineBankAPI/v1/?op=getAccounts" //IP A CHANGER
         lateinit var data : JSONObject
         lateinit var comptes : JSONArray
 
