@@ -39,10 +39,11 @@
             android:src="@drawable/carte" />
 
         <TextView
+            android:id="@+id/name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="2dp"
-            android:text="GONCALVES - LAURA" />
+            />
 
         <TextView
             android:layout_width="wrap_content"

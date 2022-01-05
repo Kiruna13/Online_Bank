@@ -5,7 +5,9 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
 import com.example.banqueenligne.R
+import org.json.JSONObject
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -24,18 +26,32 @@ class CardsFragment : Fragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
-        }
     }
 
+
     override fun onCreateView(
+
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+
+        var fetchedUser = arguments?.getString("user")
+        var user = JSONObject(fetchedUser)
+        var name :String = user["name"].toString()
+        var firstname :String = user["firstname"].toString()
+        val view = inflater.inflate(R.layout.fragment_cards, container, false)
+        view.findViewById<TextView>(R.id.name).text = concat(name, " ", firstname).toUpperCase()
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_cards, container, false)
+        return view
+    }
+
+    private fun concat(vararg string: String): String {
+        val sb = StringBuilder()
+        for (s in string) {
+            sb.append(s)
+        }
+
+        return sb.toString()
     }
 
     companion object {
