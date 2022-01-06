@@ -106,7 +106,7 @@
                         $response['message'] = 'No results';
                     } else {
                         $response['error'] = false;
-                        $response['message'] = $card;
+                        $response['card'] = $card;
                     }
                 } else {
                     $response['error'] = true;

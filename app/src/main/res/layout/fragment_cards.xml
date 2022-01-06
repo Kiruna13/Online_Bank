@@ -69,6 +69,7 @@
 
 
         <CheckBox
+            android:id="@+id/lockedCheckbox"
             android:layout_width="30dp"
             android:layout_height="25dp"
         />
@@ -88,6 +89,12 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Faire opposition" />
+
+        <CheckBox
+            android:id="@+id/oppositionCheckbox"
+            android:layout_width="30dp"
+            android:layout_height="25dp"
+            />
 
     </LinearLayout>
 
@@ -157,6 +164,7 @@
 
 
         <CheckBox
+            android:id="@+id/distanceCheckbox"
             android:layout_width="30dp"
             android:layout_height="25dp"
             />
@@ -197,6 +205,7 @@
 
 
         <CheckBox
+            android:id="@+id/foreignCheckbox"
             android:layout_width="30dp"
             android:layout_height="25dp"
             />
