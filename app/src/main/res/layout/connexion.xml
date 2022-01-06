@@ -53,6 +53,7 @@
                 android:layout_marginTop="40dp"
                 android:textAlignment="center"
                 android:layout_gravity="center_horizontal"
+
                 android:hint="Mot de passe" />
 
             <Button
