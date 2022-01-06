@@ -83,6 +83,7 @@ class Connexion : AppCompatActivity() {
                     var user = data.optJSONArray("user")
                     var fetchedUser = user!!.getJSONObject(0)
                     nextActivity(fetchedUser)
+                    activityDepuisCompte(fetchedUser)
                 },
                 Response.ErrorListener { error : VolleyError ->
                     println(error)
@@ -108,6 +109,11 @@ class Connexion : AppCompatActivity() {
         var intent : Intent = Intent(this, MainActivity::class.java)
         intent.putExtra("user", fetchedUser.toString())
         intent.putExtra("fragmentNumber", 1)
+        startActivity(intent)
+    }
+    fun activityDepuisCompte(fetchedUser : JSONObject) {
+        var intent : Intent = Intent(this, DepuisCompte::class.java)
+        intent.putExtra("user", fetchedUser.toString())
         startActivity(intent)
     }
 

@@ -36,7 +36,7 @@ class DepuisCompte : AppCompatActivity(){
     }
 
     fun listComptes() {
-        val url = "http://192.168.1.26/onlineBankAPI/v1/?op=getAccounts" //IP A CHANGER
+        val url = "http://192.168.0.18/onlineBankAPI/v1/?op=getAccounts" //IP A CHANGER
         lateinit var data : JSONObject
         lateinit var comptes : JSONArray
 
@@ -63,10 +63,18 @@ class DepuisCompte : AppCompatActivity(){
     }
 
     fun setComptes(comptes:JSONArray) {
+
+        var fetchedUser = intent.getStringExtra("user")
+//        var user = JSONObject(fetchedUser)
+//        var name :String = user["name"].toString()
+//        var firstname :String = user["first_name"].toString()
+
+            println(JSONArray(fetchedUser))
         for(i in 0 until comptes.length()){
 
             val parent = findViewById<FlexboxLayout>(R.id.displayAllBenef)
             val child : View = layoutInflater.inflate(R.layout.display_depuis_le_compte, parent, false)
+            val box = child.findViewById<FlexboxLayout>(R.id.displayInfos)
 
             val compte : String = comptes!!.getJSONObject(i).optString("account_name")
             val amount : String = comptes!!.getJSONObject(i).optString("account_amount")
@@ -78,4 +86,22 @@ class DepuisCompte : AppCompatActivity(){
         }
     }
 
+
+
+    fun setUser(user:JSONArray) {
+        for(i in 0 until user.length()){
+
+            val parent = findViewById<FlexboxLayout>(R.id.displayAllBenef)
+            val child : View = layoutInflater.inflate(R.layout.display_depuis_le_compte, parent, false)
+            val box = child.findViewById<FlexboxLayout>(R.id.displayInfos)
+
+            val compte : String = user!!.getJSONObject(i).optString("account_name")
+            val amount : String = user!!.getJSONObject(i).optString("account_amount")
+
+            child.findViewById<TextView>(R.id.nomCompte).text = compte
+            child.findViewById<TextView>(R.id.montant).text = amount
+
+            parent.addView(child)
+        }
+    }
 }
