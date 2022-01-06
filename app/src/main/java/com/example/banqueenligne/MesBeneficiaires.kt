@@ -35,6 +35,11 @@ class MesBeneficiaires : AppCompatActivity(), View.OnClickListener {
 
     }
 
+    override fun onSupportNavigateUp(): Boolean {
+        onBackPressed()
+        return true
+    }
+
     fun setBeneficiaires(beneficiaires: JSONArray){
 
         for(i in 0 until beneficiaires.length()){
@@ -67,11 +72,6 @@ class MesBeneficiaires : AppCompatActivity(), View.OnClickListener {
         }
 
         return sb.toString()
-    }
-
-    override fun onSupportNavigateUp(): Boolean {
-        onBackPressed()
-        return true
     }
 
     override fun onClick(view: View) {

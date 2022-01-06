@@ -13,8 +13,19 @@ class VersCompte : AppCompatActivity(){
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.vers_compte);
-
+        //actionbar
+        val actionbar = supportActionBar
+        //set actionbar title
+        actionbar!!.title = "Vers le compte"
+        //set back button
+        actionbar.setDisplayHomeAsUpEnabled(true)
     }
+
+    override fun onSupportNavigateUp(): Boolean {
+        onBackPressed()
+        return true
+    }
+
     fun toggleMesComptes(view : View?){
         val rl1 = findViewById<View>(R.id.mesComptes)
         rl1.visibility = View.VISIBLE
